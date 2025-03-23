@@ -11,7 +11,9 @@ export default function Impressions() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
     >
-      <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
+      <h2 className="text-3xl font-bold mb-4 text-blue-800">
+        What Our Clients Say
+      </h2>
       <div className="flex justify-center items-center mb-6">
         <Image
           src="/images/google.png"
