@@ -2,52 +2,71 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
+import Head from "next/head";
 
 export default function HeroSection() {
   return (
-    <section
-      className="flex flex-col md:flex-row items-start justify-between px-10 pt-28 pb-10 gap-10"
-      id="home"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="w-full md:w-1/2 space-y-4"
-      >
-        <h1 className="text-[54px] font-bold">
-          Achieve Optimal{" "}
-          <span className="text-blue-800">
-            Health, Happiness and Your Full Human Potential
-          </span>
-        </h1>
-        {[
-          "Over 30 years of chiropractic experience",
-          "Just minutes from where you live or work",
-          "Long-term solution to pain and discomfort",
-        ].map((text, index) => (
-          <p key={index} className="flex items-start text-gray-700">
-            <CheckCircle className="mr-2 text-blue-800" /> {text}
-          </p>
-        ))}
-        <button className="bg-blue-800 hover:scale-105 transition transform duration-200 text-white px-5 py-3 rounded-lg shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 mt-4 cursor-pointer">
-          Call Us to Take the First Step
-        </button>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        className="w-full md:w-1/2 flex justify-center"
-      >
-        <Image
-          src="/images/massage.jpg"
-          alt="Hero Image"
-          width={1000}
-          height={200}
-          className="rounded-lg shadow-lg h-full object-cover"
+    <>
+      <Head>
+        <title>Chiropractic Health & Wellness</title>
+        <meta
+          name="description"
+          content="Achieve optimal health and happiness with over 30 years of chiropractic experience. Book your consultation today!"
         />
-      </motion.div>
-    </section>
+      </Head>
+      <section
+        className="grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-10 pt-28 pb-10 gap-10"
+        id="home"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="space-y-4"
+        >
+          <h1 className="text-3xl md:text-[54px] font-bold">
+            Achieve Optimal{" "}
+            <span className="text-blue-800">
+              Health, Happiness and Your Full Human Potential
+            </span>
+          </h1>
+          {[
+            "Over 30 years of chiropractic experience",
+            "Just minutes from where you live or work",
+            "Long-term solution to pain and discomfort",
+          ].map((text, index) => (
+            <p
+              key={index}
+              className="flex items-start text-gray-700 md:text-[24px]"
+            >
+              <CheckCircle className="mr-2 my-auto text-blue-800" /> {text}
+            </p>
+          ))}
+          <a
+            href="tel:+1234567890"
+            className="bg-blue-800 hover:scale-105 transition transform duration-200 text-white px-5 py-3 rounded-lg shadow-sm hover:bg-white hover:text-blue-800 border border-blue-800 mt-4 cursor-pointer block text-center md:w-[60%]"
+            aria-label="Call us for a consultation"
+          >
+            Call Us to Take the First Step
+          </a>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center"
+        >
+          <Image
+            src="/images/massage.jpg"
+            alt="Chiropractic treatment for pain relief"
+            width={1000}
+            height={200}
+            className="rounded-lg shadow-sm w-full h-auto object-cover md:h-[640px]"
+            priority={true}
+            loading="eager"
+          />
+        </motion.div>
+      </section>
+    </>
   );
 }

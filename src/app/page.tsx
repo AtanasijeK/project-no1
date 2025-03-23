@@ -5,6 +5,7 @@ import Team from "./components/Team";
 import BookingForm from "./components/BookingForm";
 import Impressions from "./components/Impressions";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Team />
       <BookingForm />
       <Impressions />
+      <Footer />
     </>
   );
 }

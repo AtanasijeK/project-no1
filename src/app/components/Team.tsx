@@ -7,12 +7,12 @@ export default function Team() {
   const [openPerson, setOpenPerson] = useState<number | null>(null);
   return (
     <section className="p-10 text-center" id="team">
-      <h2 className="text-4xl font-bold text-blue-800 mb-4">Meet Our Team</h2>
+      <h2 className="text-4xl font-bold text-blue-800 my-10">Meet Our Team</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {team.map(({ name, title, image, details }, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg rounded-lg p-5 text-center"
+            className="bg-white shadow-sm rounded-lg p-5 text-center"
           >
             <div
               className="cursor-pointer"
@@ -27,13 +27,13 @@ export default function Team() {
               />
               <h4 className="text-lg font-bold text-blue-800">{name}</h4>
               <p className="text-gray-600">{title}</p>
-              <p className="text-[12px] text-gray-500">
-                Click for more details...
+              <p className="text-[16px] text-gray-500 text-justify mt-5">
+                {details}
               </p>
             </div>
-            {openPerson === index && (
+            {/* {openPerson === index && (
               <p className="mt-3 text-gray-700 text-justify">{details}</p>
-            )}
+            )} */}
           </div>
         ))}
       </div>
