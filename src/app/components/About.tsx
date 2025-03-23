@@ -5,14 +5,16 @@ export default function About() {
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto mt-20">
         <div className="bg-white shadow-sm rounded-lg p-5">
-          <p className="text-gray-700">
+          <span className="text-amber-400 text-[22px]">★★★★★</span>
+          <p className="text-gray-700 text-[22px]">
             Over 10,000 satisfied clients have improved their posture with our
             chiropractic care. We use advanced Biostructural Correction
             techniques for long-term pain relief.
           </p>
         </div>
         <div className="bg-white shadow-sm rounded-lg p-5">
-          <p className="text-gray-700">
+          <span className="text-amber-400 text-[22px]">★★★★★</span>
+          <p className="text-gray-700 text-[22px]">
             Our team has over 30 years of experience in holistic health care.
             Located minutes from your home or office for convenient access to
             quality care.
