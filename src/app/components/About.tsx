@@ -1,4 +1,4 @@
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 
 export default function About() {
   return (
@@ -21,18 +21,22 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-12 text-white py-20 p-10 mt-20" id="about">
-        <div className="md:col-span-6">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 text-white py-20 p-10 mt-20"
+        id="about"
+      >
+        <div className="">
           <iframe
-            className="w-full h-full  rounded-lg shadow-lg"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            className="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
             title="YouTube video"
             frameBorder="0"
             allow="autoplay; encrypted-media"
+            loading="lazy"
             allowFullScreen
           ></iframe>
         </div>
-        <div className="md:col-span-6 flex flex-col justify-between h-full text-center pl-6 py-20">
+        <div className="flex flex-col justify-between h-full text-center md:pl-6 py-20">
           <div className="mb-auto">
             <h3 className="text-4xl font-bold mb-4 text-blue-800">
               Discover the Benefits <br /> of Our Therapy

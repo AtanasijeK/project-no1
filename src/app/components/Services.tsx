@@ -66,7 +66,7 @@ export default function Services() {
       <div className="my-8 flex justify-center">
         <iframe
           className="w-full md:mx-[104px] h-64 rounded-lg shadow-md"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
           title="Therapy Benefits Video"
           frameBorder="0"
           allow="autoplay; encrypted-media"

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import Head from "next/head";
+import Script from "next/script";
 
 export default function HeroSection() {
   return (
@@ -13,7 +14,22 @@ export default function HeroSection() {
           name="description"
           content="Achieve optimal health and happiness with over 30 years of chiropractic experience. Book your consultation today!"
         />
+        <link
+          rel="preload"
+          href="/fonts/inter.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </Head>
+
+      {/* Preload Google Fonts */}
+      <Script
+        rel="preload"
+        src="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+        strategy="lazyOnload"
+      />
+
       <section
         className="grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-10 pt-28 pb-10 gap-10"
         id="home"
@@ -50,21 +66,23 @@ export default function HeroSection() {
             Call Us to Take the First Step
           </a>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="flex justify-center"
         >
-          <Image
-            src="/images/massage.jpg"
-            alt="Chiropractic treatment for pain relief"
-            width={1000}
-            height={200}
-            className="rounded-lg shadow-sm w-full h-auto object-cover md:h-[640px]"
-            priority={true}
-            loading="eager"
-          />
+          <div className="relative w-full min-h-[300px] md:h-[640px]">
+            <Image
+              src="/images/massage.jpg"
+              alt="Chiropractic treatment for pain relief"
+              fill
+              className="rounded-lg shadow-sm object-cover"
+              priority
+              quality={80}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </motion.div>
       </section>
     </>
