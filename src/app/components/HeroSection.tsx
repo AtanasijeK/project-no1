@@ -4,10 +4,13 @@ import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import Head from "next/head";
 import Script from "next/script";
+interface blurDataProps {
+  blurDataURL: string;
+}
 
-export default function HeroSection() {
+export default function HeroSection({ blurDataURL }: blurDataProps) {
   return (
-    <>
+    <div suppressHydrationWarning>
       <Head>
         <title>Chiropractic Health & Wellness</title>
         <meta
@@ -15,7 +18,6 @@ export default function HeroSection() {
           content="Achieve optimal health and happiness with over 30 years of chiropractic experience. Book your consultation today!"
         />
         <link
-          rel="preload"
           href="/fonts/inter.woff2"
           as="font"
           type="font/woff2"
@@ -40,7 +42,10 @@ export default function HeroSection() {
           transition={{ duration: 0.7 }}
           className="space-y-4"
         >
-          <h1 className="text-3xl md:text-[54px] font-bold">
+          <h1
+            suppressHydrationWarning
+            className="text-3xl md:text-[54px] font-bold"
+          >
             Achieve Optimal{" "}
             <span className="text-blue-800">
               Health, Happiness and Your Full Human Potential
@@ -75,16 +80,18 @@ export default function HeroSection() {
           <div className="relative w-full min-h-[300px] md:h-[640px]">
             <Image
               src="/images/massage.jpg"
-              alt="Chiropractic treatment for pain relief"
+              alt="Chiropractic treatment"
               fill
               className="rounded-lg shadow-sm object-cover"
               priority
               quality={80}
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL={blurDataURL}
             />
           </div>
         </motion.div>
       </section>
-    </>
+    </div>
   );
 }

@@ -7,7 +7,6 @@ const Footer: React.FC = () => {
     <footer className="bg-blue-800 text-white mt-10 p-6 text-center">
       {/* Preload custom font example (if self-hosted fonts are used) */}
       <link
-        rel="preload"
         href="/fonts/YourFont.woff2"
         as="font"
         type="font/woff2"

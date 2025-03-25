@@ -6,12 +6,14 @@ import BookingForm from "./components/BookingForm";
 import Impressions from "./components/Impressions";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import { getBlurData } from "../../lib/getBlurData";
 
-export default function Home() {
+export default async function Home() {
+  const blurDataURL = await getBlurData("images/massage.jpg");
   return (
     <>
       <Navbar />
-      <HeroSection />
+      <HeroSection blurDataURL={blurDataURL} />
       <About />
       <Services />
       <Team />
