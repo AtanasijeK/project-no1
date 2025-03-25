@@ -3,13 +3,6 @@ import dynamic from "next/dynamic";
 import { services } from "../data/services";
 import { services1 } from "../data/services1";
 
-const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full max-w-5xl h-64 md:h-80 rounded-2xl shadow-md bg-gray-100 animate-pulse" />
-  ),
-});
-
 const ExtraServices = dynamic(() => import("./ExtraServices"), {
   ssr: false,
   loading: () => (
