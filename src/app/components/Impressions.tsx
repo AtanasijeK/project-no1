@@ -1,26 +1,31 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import TestimonialCard from "./TestimonialCard";
 import { impressions } from "../data/impressions";
 
 export default function Impressions() {
   return (
-    <motion.section
-      className="mt-20 p-10 text-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
+    <section
+      suppressHydrationWarning
+      className="mt-20 px-4 md:px-10 text-center"
     >
-      <h2 className="text-3xl font-bold mb-4 text-blue-800">
+      <h2
+        id="client-testimonials"
+        aria-label="Client Testimonials"
+        className="text-3xl md:text-4xl font-bold mb-6 text-blue-800"
+      >
         What Our Clients Say
       </h2>
-      <div className="flex justify-center items-center mb-6">
+
+      <div className="flex flex-col md:flex-row justify-center items-center mb-8 gap-3 md:gap-5">
         <Image
           src="/images/google.png"
           alt="Google logo"
-          width={50}
-          height={50}
-          className="my-4"
+          width={48}
+          height={48}
+          loading="eager"
+          priority
         />
         <div className="flex flex-col">
           <span className="text-xl font-bold ml-2">
@@ -36,29 +41,13 @@ export default function Impressions() {
           </a>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:mx-10">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 gap-x-6 md:gap-y-12 md:gap-x-10 lg:gap-y-14 lg:gap-x-12">
         {impressions?.length > 0 &&
           impressions.map((client, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-lg p-5">
-              <div className="grid grid-cols-2">
-                <Image
-                  src={client.image}
-                  alt={client.name}
-                  width={60}
-                  height={80}
-                  className="rounded-full mb-3"
-                />
-                <div>
-                  <h4 className="text-lg font-bold">{client.name}</h4>
-                  <h4 className="text-amber-400">{client.stars}</h4>
-                </div>
-              </div>
-              <p className="text-gray-700 mt-2 text-justify">
-                {client.feedback}
-              </p>
-            </div>
+            <TestimonialCard key={index} client={client} />
           ))}
       </div>
-    </motion.section>
+    </section>
   );
 }

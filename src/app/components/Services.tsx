@@ -1,68 +1,55 @@
-// import { services } from "../data/services";
-// import { services1 } from "../data/services1";
-
-// export default function Services() {
-//   return (
-//     <section className="p-10 text-center" id="services">
-//       <h2 className="text-4xl font-bold mb-4 text-blue-800">
-//         How We Can Help You
-//       </h2>
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-//         {services.map(({ title, text }, index) => (
-//           <div key={index} className="bg-white shadow-lg rounded-lg p-5">
-//             <h4 className="text-lg font-bold text-blue-800 mb-2">{title}</h4>
-//             <p className="text-gray-600 text-justify">{text}</p>
-//           </div>
-//         ))}
-//       </div>
-//       <div className="my-6">
-//         <iframe
-//           className="h-64 md:h-80 rounded-lg shadow-sm"
-//           src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-//           title="Therapy Benefits Video"
-//           frameBorder="0"
-//           allow="autoplay; encrypted-media"
-//           allowFullScreen
-//         ></iframe>
-//       </div>
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-//         {services1.map(({ title, text }, index) => (
-//           <div key={index} className="bg-white shadow-lg rounded-lg p-5">
-//             <h4 className="text-lg font-bold text-blue-800 mb-2">{title}</h4>
-//             <p className="text-gray-600 text-justify">{text}</p>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
+"use client";
+import dynamic from "next/dynamic";
 import { services } from "../data/services";
 import { services1 } from "../data/services1";
 
+const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full max-w-5xl h-64 md:h-80 rounded-2xl shadow-md bg-gray-100 animate-pulse" />
+  ),
+});
+
+const ExtraServices = dynamic(() => import("./ExtraServices"), {
+  ssr: false,
+  loading: () => (
+    <div className="text-center text-gray-400 py-10">
+      Loading more services...
+    </div>
+  ),
+});
+
 export default function Services() {
   return (
-    <section className="p-10 text-center" id="services">
-      <h2 className="text-4xl font-bold mb-6 text-blue-800">
+    <section
+      suppressHydrationWarning
+      className="p-10 text-center"
+      id="services"
+    >
+      <h2 className="text-4xl font-bold mb-6 text-blue-800 leading-snug">
         How We Can Help You
       </h2>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"
+        aria-labelledby="main-services"
+      >
         {services.map(({ title, text }, index) => (
           <article
             key={index}
-            className="bg-white shadow-lg rounded-lg p-6 text-left"
+            className="bg-white shadow-md rounded-2xl p-6 text-left"
           >
             <h3 className="text-xl font-semibold text-blue-800 mb-2">
               {title}
             </h3>
-            <p className="text-gray-600">{text}</p>
+            <p className="text-gray-600 leading-relaxed text-[16px]">{text}</p>
           </article>
         ))}
       </div>
 
       {/* Video Section */}
+
       <div className="my-8 flex justify-center">
         <iframe
           className="w-full md:mx-[104px] h-64 rounded-lg shadow-md"
@@ -76,19 +63,7 @@ export default function Services() {
       </div>
 
       {/* Additional Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {services1.map(({ title, text }, index) => (
-          <article
-            key={index}
-            className="bg-white shadow-lg rounded-lg p-6 text-left"
-          >
-            <h3 className="text-xl font-semibold text-blue-800 mb-2">
-              {title}
-            </h3>
-            <p className="text-gray-600">{text}</p>
-          </article>
-        ))}
-      </div>
+      <ExtraServices services1={services1} />
     </section>
   );
 }
