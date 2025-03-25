@@ -1,8 +1,6 @@
-import { div } from "framer-motion/client";
-
 export default function BookingForm() {
   return (
-    <>
+    <div>
       <div className="fixed bottom-6 right-6 z-50">
         <a
           href="tel:0280597743"
@@ -41,6 +39,6 @@ export default function BookingForm() {
           </button>
         </form>
       </section>
-    </>
+    </div>
   );
 }
