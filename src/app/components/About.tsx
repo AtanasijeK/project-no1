@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section>
+    <section id="about">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto mt-20">
         <div className="bg-white shadow-sm rounded-lg p-5">
           <span className="text-amber-400 text-[22px]">★★★★★</span>
@@ -19,10 +19,7 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div
-        className="grid grid-cols-1 md:grid-cols-2 text-white py-20 p-10 mt-20"
-        id="about"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 text-white py-20 p-10 mt-20">
         <div className="">
           <iframe
             className="w-full h-full rounded-lg shadow-lg"
